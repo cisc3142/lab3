@@ -4,27 +4,13 @@
 #include <list>
 #include <vector>
 
+#include "dlist.h"
 #include "llist.h"
-#include "timing.h"
 
-#define ARRSIZE 100000
+#define ARRSIZE 1000
 
 template <class Iter>
 void selectionSort(Iter, Iter);	// implement
-
-struct time {
-	uint64 start;
-	std::string name;
-	time(const std::string& str="") : start(GetTimeMs64()), name(str) {}
-	void getTimeElapsed() { 
-		std::cout << name << "... " << GetTimeMs64() - start << std::endl; 
-	}
-	void startAgain(const std::string& str="") {
-		start = GetTimeMs64();
-		name = str;
-	}
-};
-
 
 int main(int argc, char** argv) {
 	// generate random array
@@ -36,34 +22,19 @@ int main(int argc, char** argv) {
 
 	// vector
 	std::vector<int> vec, vec2;
-	struct time t("filling vector");
 	for (int i = 0; i < ARRSIZE; i++) vec.push_back(arr[i]);
-	t.getTimeElapsed();
 	vec2 = vec;
-
-	t.startAgain("sorting vector");
 	selectionSort(vec.begin(), vec.end());
-	t.getTimeElapsed();
 
 	// singly linked list
 	List<int> lst;
-	t.startAgain("filling list");
 	for (int i = 0; i < ARRSIZE; i++) lst.push_front(arr[i]);
-	t.getTimeElapsed();
-
-	t.startAgain("sorting list");
 	selectionSort(lst.begin(), lst.end());
-	t.getTimeElapsed();
 
 	// doubly linked list
-	List<int> dlst;		// TODO: change to DList 
-	t.startAgain("filling dlist");
+	DList<int> dlst;
 	for (int i = 0; i < ARRSIZE; i++) dlst.push_front(arr[i]);
-	t.getTimeElapsed();
-
-	t.startAgain("sorting dlist");
 	selectionSort(dlst.begin(), dlst.end());
-	t.getTimeElapsed();
 
 	// check sort
 	std::sort(vec2.begin(), vec2.end());

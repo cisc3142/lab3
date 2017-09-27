@@ -1,10 +1,10 @@
-#ifndef LLIST_H
-#define LLIST_H
+#ifndef DLIST_H
+#define DLIST_H
 
 #include <iterator>
 
 template <class T>
-class List {
+class DList {
 	struct Node {
 		T data;
 		Node* next;
@@ -24,7 +24,7 @@ class List {
 		typedef T& reference;
 		typedef T* pointer;
 
-		friend class List;		// List objects have access to private members of List::iterator.
+		friend class DList;		// List objects have access to private members of List::iterator.
 
 		// constructors
 		inline iterator(Node* x=NULL) : nd(x) {}	// construct from node pointer
@@ -58,18 +58,21 @@ class List {
 		}	// not equal
 	};		// end iterator
 
-	List() : head(NULL) {}
-	~List() { clear(); }
+	DList() : head(NULL) {}
+	~DList() { clear(); }
 	void clear() { while (!empty()) pop_front(); }
 
+	// TODO: with sentinel node, head is never null
 	bool empty() { return !head; }
 
+	// TODO: with sentinel node, head always stays the same. Links: link head to new first node, new first node to head, new first node to former first node, former first node to new first node.
 	void push_front(const T& x) {
 		Node* nd = new Node(x);
 		nd->next = head;
 		head = nd;
 	}
 
+	// TODO: with sentinel node, head always exists. Links: link head to *second* node, and link second node to head.
 	void pop_front() {
 		if (head) {
 			Node* nd = head->next;
@@ -78,6 +81,7 @@ class List {
 		}
 	}
 
+	// TODO: with sentinel node, head never changes. With prev links, don't need to search list for node before position. Four links.
 	void insert(const iterator position, const T& val) {
 		Node* nd = new Node(val, position.nd);	// new node's next will be position's node
 
@@ -89,6 +93,12 @@ class List {
 		}
 	}
 
+	// TODO: fill in
+	void erase(const iterator position) {
+		
+	}
+
+	// TODO: with sentinel node, head is not the first valid node, and null is not one past the last valid node
 	iterator begin() { return iterator(head); }
 	iterator end() { return iterator(NULL); }
 };	// end list
