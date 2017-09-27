@@ -8,7 +8,7 @@ class DList {
 	struct Node {
 		T data;
 		Node* next;
-		Node(const T& x, Node* y = NULL) : data(x), next(y) {}
+		Node(const T& x, Node* y = NULL) : data(x), next(y) {}		// TODO
 	};
 
 	Node* head;
