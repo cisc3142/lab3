@@ -58,7 +58,7 @@ class DList {
 		}	// not equal
 	};		// end iterator
 
-	DList() : head(NULL) {}
+	DList() : head(NULL) {}		// TODO: header node should be allocated and linked to itself
 	~DList() { clear(); }
 	void clear() { while (!empty()) pop_front(); }
 
