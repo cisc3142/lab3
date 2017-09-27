@@ -1,4 +1,5 @@
 #include <assert.h>
+#include <algorithm>
 #include <iostream>
 #include <time.h>
 #include <list>
