@@ -1,8 +1,22 @@
 # Homework 2: Doubly linked list, iterators
 
-You are given llist.h, which is an implementation of a singly linked list with a nested iterator class. dllist.h is a copy of llist.h with TODO indicating which methods you will need to modify to convert it to a doubly linked list with a sentinel node. Implement those changes.
+You are given five files.
 
-You will also need to modify main.cpp to fill in selectionSort, which takes two iterators. You can copy the code we wrote in class and make the appropriate changes so it works with iterators instead of array access.
+   LinkedList.java is an implementation of a singly linked list.
+   
+   DLinkedList.java is an implementation of a doubly linked list.
+		
+   LinkedListIterator.java is an implementation of an iterator for a singly linked list.
+
+   DLinkedListIterator.java is supposed to be an implementation of an iterator for a doubly linked list. Currently, it is identical to LinkedListIterator.java (aside for the class names). 
+
+   Sorts.java includes a main method testing selection sort and a stub for the sort itself.
+
+## TODO
+
+   Modify DLinkedListIterator.java to support a doubly linked list (edits are necessary wherever the file has a ```// TODO ``` comment)
+
+   Modify Sorts.java to include an implementation of Selection Sort using the ListIterator interface (which both included iterator implementations fulfill)
 
 As always, start by accepting the assignment in github classroom and activating travis.
 
