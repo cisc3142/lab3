@@ -1,5 +1,5 @@
 language: java
 
 script:
- - javac lists/*.java
- - java lists.Sorts
+ - javac IteratorExercise.java
+ - java IteratorExercise
