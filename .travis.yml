@@ -1,5 +1,5 @@
-language: java
+language: c++
 
 script:
- - javac IteratorExercise.java
- - java IteratorExercise
+ - g++ iterators.cpp
+ - ./a.out
