@@ -1,4 +1,4 @@
-# Homework 2: Iterator exercise
+# Homework 3: Iterator exercise
 
 Implement the following three methods in iterators.cpp:
 
