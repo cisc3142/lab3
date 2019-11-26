@@ -1,5 +1,5 @@
 language: c++
 
 script:
- - g++ iterators.cpp
+ - g++ iterators.cpp -std=c++11
  - ./a.out
